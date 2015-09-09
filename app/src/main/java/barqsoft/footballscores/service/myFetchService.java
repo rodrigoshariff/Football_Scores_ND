@@ -39,8 +39,8 @@ public class myFetchService extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-        getData("n2");
-        getData("p15");
+        getData("p7");
+        getData("n7");
 
         return;
     }
@@ -197,8 +197,8 @@ public class myFetchService extends IntentService
                         //League.equals(BUNDESLIGA1)         ||
                         //League.equals(BUNDESLIGA2)         ||
                         //League.equals(Bundesliga3)         ||
-                        League.equals(PRIMERA_DIVISION)    //||
-                        //League.equals(SEGUNDA_DIVISION)    ||
+                        League.equals(PRIMERA_DIVISION)    ||
+                        League.equals(SEGUNDA_DIVISION)    //||
                         //League.equals(PRIMERA_LIGA)
                         )
                 {
@@ -225,7 +225,7 @@ public class myFetchService extends IntentService
 
                         if(!isReal){
                             //This if statement changes the dummy data's date to match our current date range.
-                            Date fragmentdate = new Date(System.currentTimeMillis()+((i-2)*86400000));
+                            Date fragmentdate = new Date(System.currentTimeMillis()+((i-7)*86400000));
                             SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
                             mDate=mformat.format(fragmentdate);
                         }

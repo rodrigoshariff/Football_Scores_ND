@@ -10,7 +10,7 @@ import android.view.MenuItem;
 public class MainActivity extends ActionBarActivity
 {
     public static int selected_match_id;
-    public static int current_fragment = 6;
+    public static int current_fragment = 7;
     public static String LOG_TAG = "MainActivity";
     private final String save_tag = "Save Test";
     private PagerFragment my_main;

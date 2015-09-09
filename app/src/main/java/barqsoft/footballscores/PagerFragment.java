@@ -32,7 +32,7 @@ public class PagerFragment extends Fragment
         mPagerAdapter = new myPageAdapter(getChildFragmentManager());
         for (int i = 0;i < NUM_PAGES;i++)
         {
-            Date fragmentdate = new Date(System.currentTimeMillis()+((i-12)*86400000));
+            Date fragmentdate = new Date(System.currentTimeMillis()+((i-7)*86400000));
             SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
             viewFragments[i] = new MainScreenFragment();
             viewFragments[i].setFragmentDate(mformat.format(fragmentdate));
@@ -63,7 +63,7 @@ public class PagerFragment extends Fragment
         @Override
         public CharSequence getPageTitle(int position)
         {
-            return getDayName(getActivity(),System.currentTimeMillis()+((position-12)*86400000));
+            return getDayName(getActivity(),System.currentTimeMillis()+((position-7)*86400000));
         }
 
         public String getDayName(Context context, long dateInMillis) {
