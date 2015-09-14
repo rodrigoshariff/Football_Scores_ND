@@ -44,6 +44,13 @@ public class DatabaseContract
         {
             return BASE_CONTENT_URI.buildUpon().appendPath("date").build();
         }
+
+        public static Uri buildScoreWithDate2(String startDate) {
+            return BASE_CONTENT_URI.buildUpon().appendPath("date")
+                    .appendQueryParameter(DATE_COL, startDate).build();
+        }
+
+
         public static Uri buildScores()
         {
             return BASE_CONTENT_URI;

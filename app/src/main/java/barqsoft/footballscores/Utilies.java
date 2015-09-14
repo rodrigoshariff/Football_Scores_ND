@@ -61,7 +61,7 @@ public class Utilies
     {
         if(home_goals < 0 || awaygoals < 0)
         {
-            return " - ";
+            return " soon ";
         }
         else
         {
