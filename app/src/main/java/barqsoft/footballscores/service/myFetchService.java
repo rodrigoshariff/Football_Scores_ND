@@ -39,8 +39,8 @@ public class myFetchService extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
-        getData("p7");
-        getData("n7");
+        getData("p8");
+        getData("n2");
 
         return;
     }

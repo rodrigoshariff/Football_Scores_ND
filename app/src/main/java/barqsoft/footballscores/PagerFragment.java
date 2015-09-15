@@ -20,10 +20,10 @@ import java.util.Date;
  */
 public class PagerFragment extends Fragment
 {
-    public static final int NUM_PAGES = 15;
+    public static final int NUM_PAGES = 11;
     public ViewPager mPagerHandler;
     private myPageAdapter mPagerAdapter;
-    private MainScreenFragment[] viewFragments = new MainScreenFragment[15];
+    private MainScreenFragment[] viewFragments = new MainScreenFragment[11];
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {

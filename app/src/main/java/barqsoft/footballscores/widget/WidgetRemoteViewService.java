@@ -19,6 +19,7 @@ public class WidgetRemoteViewService extends RemoteViewsService {
     private static final String[] SCORE_COLUMNS = {
             DatabaseContract.scores_table._ID,
             DatabaseContract.scores_table.DATE_COL,
+            DatabaseContract.scores_table.TIME_COL,
             DatabaseContract.scores_table.MATCH_ID,
             DatabaseContract.scores_table.LEAGUE_COL,
             DatabaseContract.scores_table.HOME_COL,
@@ -29,12 +30,13 @@ public class WidgetRemoteViewService extends RemoteViewsService {
     // these indices must match the projection
     static final int INDEX_ID = 0;
     static final int INDEX_DATE_COL = 1;
-    static final int INDEX_MATCH_ID = 2;
-    static final int INDEX_LEAGUE_COL = 3;
-    static final int INDEX_HOME_COL = 4;
-    static final int INDEX_AWAY_COL = 5;
-    static final int INDEX_HOME_GOALS_COL = 6;
-    static final int INDEX_AWAY_GOALS_COL = 7;
+    static final int INDEX_TIME_COL = 2;
+    static final int INDEX_MATCH_ID = 3;
+    static final int INDEX_LEAGUE_COL = 4;
+    static final int INDEX_HOME_COL = 5;
+    static final int INDEX_AWAY_COL = 6;
+    static final int INDEX_HOME_GOALS_COL = 7;
+    static final int INDEX_AWAY_GOALS_COL = 8;
 
 
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
@@ -92,6 +94,9 @@ public class WidgetRemoteViewService extends RemoteViewsService {
 /*                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                     setRemoteContentDescription(views, description);
                 }*/
+                views.setTextViewText(R.id.widget_date, data.getString(INDEX_DATE_COL) );
+                views.setTextViewText(R.id.widget_time, data.getString(INDEX_TIME_COL));
+                views.setTextViewText(R.id.widget_league, Utilies.getLeague(data.getInt(INDEX_LEAGUE_COL)));
                 views.setTextViewText(R.id.widget_home_team, data.getString(INDEX_HOME_COL));
                 views.setTextViewText(R.id.widget_score, formattedScore);
                 views.setTextViewText(R.id.widget_away_team, data.getString(INDEX_AWAY_COL));
