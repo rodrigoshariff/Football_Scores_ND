@@ -89,8 +89,8 @@ public class WidgetRemoteViewService extends RemoteViewsService {
                 RemoteViews views = new RemoteViews(getPackageName(),
                         R.layout.widget_list_item);
 
-                String formattedScore =Utilies.getScores(data.getInt(INDEX_HOME_GOALS_COL), data.getInt(INDEX_AWAY_GOALS_COL))
-                ;
+                String formattedScore =Utilies.getScores(data.getInt(INDEX_HOME_GOALS_COL),
+                        data.getInt(INDEX_AWAY_GOALS_COL));
 /*                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                     setRemoteContentDescription(views, description);
                 }*/

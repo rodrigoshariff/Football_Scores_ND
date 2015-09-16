@@ -192,13 +192,13 @@ public class myFetchService extends IntentService
                 //add leagues here in order to have them be added to the DB.
                 // If you are finding no data in the app, check that this contains all the leagues.
                 // If it doesn't, that can cause an empty DB, bypassing the dummy data routine.
-                if(     //League.equals(PREMIER_LEAGUE)      ||
+                if(     League.equals(PREMIER_LEAGUE)      ||
                         League.equals(SERIE_A)             ||
                         //League.equals(BUNDESLIGA1)         ||
                         //League.equals(BUNDESLIGA2)         ||
                         //League.equals(Bundesliga3)         ||
-                        League.equals(PRIMERA_DIVISION)    ||
-                        League.equals(SEGUNDA_DIVISION)    //||
+                        League.equals(PRIMERA_DIVISION)    //||
+                        //League.equals(SEGUNDA_DIVISION)    //||
                         //League.equals(PRIMERA_LIGA)
                         )
                 {

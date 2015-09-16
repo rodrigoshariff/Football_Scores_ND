@@ -40,7 +40,7 @@
     <string name="description_about_text">Football Scores App Description</string>
     <string name="description_league">League</string>
     <string name="description_matchday">Matchday</string>
-    <string name="description_share">Fixture Sharing Button</string>
+    <string name="description_share">Fixture Sharing</string>
     <string name="description_home_image">Home Team Logo</string>
     <string name="description_away_image">Away Team Logo</string>
     <string name="description_home_name">Home Team</string>
