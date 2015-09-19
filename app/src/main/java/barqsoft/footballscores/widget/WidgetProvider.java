@@ -4,13 +4,12 @@ import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v4.app.TaskStackBuilder;
 import android.widget.RemoteViews;
-import android.content.ComponentName;
 
 import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
@@ -49,6 +48,17 @@ public class WidgetProvider extends AppWidgetProvider{
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
        }
+
+    @Override
+    public void onReceive(@NonNull Context context, @NonNull Intent intent) {
+        super.onReceive(context, intent);
+
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(
+                    new ComponentName(context, getClass()));
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_scores_list);
+
+    }
 
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)

@@ -50,7 +50,6 @@ public class DatabaseContract
                     .appendQueryParameter(DATE_COL, startDate).build();
         }
 
-
         public static Uri buildScores()
         {
             return BASE_CONTENT_URI;

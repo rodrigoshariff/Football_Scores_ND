@@ -165,6 +165,24 @@ public class ScoresProvider extends ContentProvider
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        return 0;
+
+        final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        int rowsDeleted;
+        switch (match_uri(uri)) {
+            case MATCHES:
+                rowsDeleted = db.delete(
+                        DatabaseContract.SCORES_TABLE, selection, selectionArgs);
+                break;
+
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
+        // Because a null deletes all rows
+        if (selection == null || rowsDeleted != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return rowsDeleted;
+
+
     }
 }

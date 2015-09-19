@@ -42,6 +42,8 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
+
+
         update_scores();
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         final ListView score_list = (ListView) rootView.findViewById(R.id.scores_list);

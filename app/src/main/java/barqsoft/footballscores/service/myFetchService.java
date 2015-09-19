@@ -39,6 +39,8 @@ public class myFetchService extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
+        //truncate database
+        //getContentResolver().delete(DatabaseContract.BASE_CONTENT_URI, null, null);
         getData("p8");
         getData("n2");
 
@@ -263,6 +265,9 @@ public class myFetchService extends IntentService
                     values.add(match_values);
                 }
             }
+
+
+
             int inserted_data = 0;
             ContentValues[] insert_data = new ContentValues[values.size()];
             values.toArray(insert_data);
