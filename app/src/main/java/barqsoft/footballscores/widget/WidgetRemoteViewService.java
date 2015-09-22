@@ -8,7 +8,11 @@ import android.widget.AdapterView;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import barqsoft.footballscores.DatabaseContract;
+import barqsoft.footballscores.MainScreenFragment;
 import barqsoft.footballscores.R;
 import barqsoft.footballscores.Utilies;
 
@@ -38,6 +42,10 @@ public class WidgetRemoteViewService extends RemoteViewsService {
     static final int INDEX_HOME_GOALS_COL = 7;
     static final int INDEX_AWAY_GOALS_COL = 8;
 
+    private static final String SCORES_FROM_DATE =
+            DatabaseContract.scores_table.DATE_COL + " >= ?";
+
+
 
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
         return new RemoteViewsFactory() {
@@ -58,11 +66,17 @@ public class WidgetRemoteViewService extends RemoteViewsService {
                 // data. Therefore we need to clear (and finally restore) the calling identity so
                 // that calls use our process and permission
                 final long identityToken = Binder.clearCallingIdentity();
+
+                String[] fromdateArray = new String[1];
+                Date fromdate = new Date(System.currentTimeMillis()+((0-7)*86400000));
+                SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
+                fromdateArray[0]=mformat.format(fromdate);
+
                 Uri AllScoresUri = DatabaseContract.scores_table.buildScores();
                 data = getContentResolver().query(AllScoresUri,
                         SCORE_COLUMNS,
-                        null,
-                        null,
+                        SCORES_FROM_DATE,
+                        fromdateArray,
                         DatabaseContract.scores_table.DATE_COL + " ASC");
                 Binder.restoreCallingIdentity(identityToken);
             }
